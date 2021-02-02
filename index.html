@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+    {APPNAME}
+
+    Copyright (C) Emux Technologies. All Rights Reserved.
+
+    https://emux.app
+    Licenced by the {APPNAME} Terms of Service, which can be found at https://emux.app/terms.
+-->
+<html>
+    <head>
+        <title>@{APPNAME}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="shortcut icon" href="https://emux.app/media/emux.png"> <!-- TODO: Replace URL with path to your short logo -->
+        <link rel="stylesheet" href="/lib/font.css">
+        <link rel="stylesheet" href="/elib/style.css">
+        <link rel="stylesheet" href="/style.css">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="{APPNAME}">
+        <script src="/lib/jquery.min.js"></script>
+        <script src="/lib/firebase-app.js"></script>
+        <script src="/lib/firebase-analytics.js"></script>
+        <script src="/lib/firebase-auth.js"></script>
+        <script src="/lib/firebase-database.js"></script>
+        <script src="/lib/firebase-storage.js"></script>
+        <script src="/elib/core.js"></script>
+        <script src="/elib/lang.js"></script>
+        <script src="/elib/screens.js"></script>
+        <script src="/elib/dialog.js"></script>
+        <script src="/lang/en_GB.js"></script>
+        <script src="/script.js"></script>
+    </head>
+    <body>
+        <div class="sidebar">
+            <img src="https://emux.app/media/emuxText.svg" alt="@Emux" class="logo" /> <!-- TODO: Replace URL with path to your long logo -->
+            <!--
+                TODO: Choose screen names ─ ensure that screen IDs match in 
+                onclick`, `data-screen` and also on the `id` attribute of the
+                screen's respective `main` element
+            -->
+            <section class="options">
+                <button onclick="screens.switch('screen1');" class="pageSelector selected" data-screen="screen1">
+                    <span>@Screen 1</span>
+                </button>
+                <button onclick="screens.switch('screen2');" class="pageSelector" data-screen="screen2">
+                    <span>@Screen 2</span>
+                </button>
+                <button onclick="screens.switch('screen3');" class="pageSelector" data-screen="screen3">
+                    <span>@Screen 3</span>
+                </button>
+            </section>
+        </div>
+        <main hidden id="screen1">
+            <nav>
+                <span>@Screen 1</span>
+            </nav>
+            <div class="content">
+                <!-- TODO: Implement your screen here -->
+                <p>@Welcome to your brand new app!</p>
+                <section class="options">
+                    <button>@Button 1</button>
+                    <button>@Button 2</button>
+                    <button>@Button 3</button>
+                </section>
+            </div>
+        </main>
+        <main hidden id="screen2">
+            <nav class="green">
+                <button onclick="screens.moveBack('screen2', 'screen1');"><icon class="flippable" aria-hidden="true">arrow_back_ios</icon> <span>@Back</span></button>
+                <span>@Screen 2</span>
+            </nav>
+            <div class="content">
+                <!-- TODO: Implement your screen here -->
+            </div>
+        </main>
+        <main hidden id="screen3">
+            <nav class="red">
+                <button onclick="screens.moveBack('screen3', 'screen1');"><icon class="flippable" aria-hidden="true">arrow_back_ios</icon> <span>@Back</span></button>
+                <span>@Screen 3</span>
+            </nav>
+            <div class="content">
+                <!-- TODO: Implement your screen here -->
+            </div>
+        </main>
+        <footer>
+            <a href="javascript:screens.switch('screen1');" class="pageSelector selected" data-screen="screen1">
+                <icon aria-hidden="true">home</icon>
+                <span>@Screen 1</span>
+            </a>
+            <a href="javascript:screens.switch('screen2');" class="pageSelector" data-screen="screen2">
+                <icon aria-hidden="true">edit</icon>
+                <span>@Screen 2</span>
+            </a>
+            <a href="javascript:screens.switch('screen3');" class="pageSelector" data-screen="screen3">
+                <icon aria-hidden="true">event_note</icon>
+                <span>@Screen 3</span>
+            </a>
+        </footer>
+        <div id="loader">
+            <img src="https://emux.app/media/emux.svg" alt="@{APPNAME} is loading..." /> <!-- TODO: Replace URL with path to your long logo -->
+            <h1>@{APPNAME}</h1>
+        </div>
+        <div class="dialogBackground"></div>
+        <div class="dialog"></div>
+    </body>
+</html>

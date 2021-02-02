@@ -1,0 +1,1152 @@
+/*
+    {APPNAME}
+
+    Copyright (C) Emux Technologies. All Rights Reserved.
+    https://emux.app
+      
+    Licenced by the {APPNAME} Terms of Service, which can be found at https://emux.app/terms.
+*/
+
+:root {
+    --background: white;
+    --text: black;
+    --light: #e8eef2;
+    --lightText: black;
+    --dark: #373f51;
+    --darkText: white;
+    --red: #f75590;
+    --redText: white;
+    --green: #10ffcb;
+    --greenText: black;
+    --blue: #20a4f3;
+    --blueText: white;
+}
+
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: "Lato", sans-serif;
+    overflow: hidden;
+    user-select: none;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    font-family: inherit;
+    user-select: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sidebar {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    padding: 20px;
+    background-color: var(--light);
+    overflow: auto;
+}
+
+nav {
+    position: relative;
+    height: 40px;
+    margin: -20px;
+    background-color: var(--blue);
+    color: var(--blueText);
+    text-align: center;
+}
+
+nav.light {
+    background-color: var(--light);
+    color: var(--lightText);
+}
+
+nav.dark {
+    background-color: var(--dark);
+    color: var(--darkText);
+}
+
+nav.red {
+    background-color: var(--red);
+    color: var(--redText);
+}
+
+nav.green {
+    background-color: var(--green);
+    color: var(--greenText);
+}
+
+nav.blue {
+    background-color: var(--blue);
+    color: var(--blueText);
+}
+
+nav button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
+    padding-bottom: 5px;
+    background-color: transparent;
+    color: inherit;
+    border-radius: 0;
+    transition: color 0.5s;
+}
+
+nav button:active {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+[dir="rtl"] nav button {
+    left: unset;
+    right: 0;
+}
+
+nav button icon {
+    vertical-align: middle;
+}
+
+nav button span {
+    margin-left: -5px;
+    vertical-align: middle;
+}
+
+[dir="rtl"] nav button span {
+    margin-left: unset;
+    margin-right: -5px;
+}
+
+nav > span {
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 50px);
+    padding: 20px;
+    background-color: var(--background);
+    color: var(--text);
+    overflow: auto;
+}
+
+main.fillScreen {
+    height: 100vh;
+    z-index: 1;
+}
+
+main.fillScreen div.content {
+    height: calc(100vh - 40px);
+}
+
+  
+main.fillScreen iframe.content {
+    height: calc(100vh - 40px);
+}
+
+header {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    bottom: 0;
+    width: 100vw;
+    height: 50px;
+    background-color: var(--light);
+}
+
+footer a {
+    position: relative;
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 5px;
+    color: var(--text);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+footer a.selected {
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+footer a.selected:active {
+    color: var(--text);
+}
+
+footer a:not(.selected) {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+footer a:not(.selected):active {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+footer a icon {
+    display: block;
+    font-size: 26px;
+}
+
+footer a span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.content {
+    position: absolute;
+    top: 60px;
+    width: 100vw;
+    height: calc(100vh - 40px - 50px);
+    margin: -20px;
+    padding: 20px;
+    text-align: start;
+    overflow: auto;
+}
+
+div.content header {
+    margin: -20px;
+}
+
+section.options {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+section.options button, section.options input, section.options select {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--light);
+    color: var(--lightText);
+    text-align: start;
+    border: none;
+    border-radius: 10px;
+}
+
+section.options button:first-child:not(:last-child), section.options input:first-child:not(:last-child), section.options select:first-child:not(:last-child) {
+    border-radius: 10px 10px 0 0;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+section.options button:not(:first-child):not(:last-child), section.options input:not(:first-child):not(:last-child), section.options select:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+section.options button:last-child:not(:first-child), section.options input:last-child:not(:first-child), section.options select:last-child:not(:first-child) {
+    border-radius: 0 0 10px 10px;
+}
+
+section.options button icon {
+    position: relative;
+    top: 2px;
+    float: right;
+}
+
+[dir="rtl"] section.options button icon {
+    float: left;
+}
+
+section.options button span:nth-of-type(2) {
+    width: 30vw;
+    margin-left: 10px;
+    margin-right: 10px;
+    float: right;
+    color: rgba(0, 0, 0, 0.15);
+    text-align: end;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+[dir="rtl"] section.options button span:nth-of-type(2) {
+    float: left;
+}
+
+section.options button:active, section.options select:active {
+    filter: brightness(0.95);
+}
+
+div.sidebar section.options button, div.sidebar section.options input, div.sidebar section.options select {
+    background-color: var(--background);
+}
+
+div.sidebar section.options button.selected {
+    background-color: var(--blue);
+    color: var(--blueText);
+}
+
+section.cards {
+    white-space: nowrap;
+    overflow-x: auto;
+    width: calc(100% + 5px);
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-bottom: 10px;
+}
+
+section.cards .card {
+    display: inline-block;
+    width: 250px;
+    height: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--light);
+    color: var(--lightText);
+    text-align: start;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    white-space: normal;
+    vertical-align: middle;
+}
+
+section.cards .card.more {
+    background-color: var(--background);
+    border: 5px solid var(--light);
+    text-align: center;
+}
+
+section.cards button:active.card.more {
+    background-color: var(--light);
+    filter: none;
+}
+
+section.cards .card h2 {
+    margin: 0;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+section.cards .card p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+section.breadcrumbs ul {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+}
+
+section.breadcrumbs ul li {
+    display: inline-block;
+}
+
+section.breadcrumbs a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+section.breadcrumbs ul icon {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+section.breadcrumbs ul li:last-child a {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+[dir="rtl"] section.breadcrumbs ul li:last-child a {
+    margin-left: 10px;
+    margin-right: unset;
+}
+
+section.breadcrumbs > a {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+section.breadcrumbs > a.important {
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: var(--blue);
+    color: var(--blueText);
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+section.breadcrumbs > a.important:active {
+    filter: brightness(1.15);
+}
+
+h2.optionHeader {
+    margin-bottom: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+h2.optionHeader + section.cards {
+    margin-top: 20px;
+}
+
+h2.optionHeader + section.editorArea {
+    margin-top: 20px;
+}
+
+p.optionParagraph {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a {
+    color: var(--dark);
+    transition: color 0.5s;
+}
+
+a:active {
+    color: var(--blue);
+}
+
+a.implied {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.5s;
+}
+
+a.implied:active {
+    color: inherit;
+    opacity: 0.5;
+}
+
+a.buttonLike {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+a icon {
+    position: relative;
+    top: 2px;
+}
+
+span.dark {
+    color: var(--dark);
+}
+
+span.red {
+    color: var(--red);
+}
+
+span.green {
+    color: var(--green);
+}
+
+span.blue {
+    color: var(--blue);
+}
+
+button, select {
+    margin: 4px;
+    padding: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: var(--blue);
+    color: var(--blueText);
+    font-size: 20px;
+    border: none;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+button:active, select:active {
+    filter: brightness(1.15);
+}
+
+button:disabled, select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button.light {
+    background-color: var(--light);
+    color: var(--lightText);
+}
+
+button.light:active {
+    filter: brightness(0.95);
+}
+
+button.dark {
+    background-color: var(--dark);
+    color: var(--darkText);
+}
+
+button.red {
+    background-color: var(--red);
+    color: var(--redText);
+}
+
+button.green {
+    background-color: var(--green);
+    color: var(--greenText);
+}
+
+button.blue {
+    background-color: var(--blue);
+    color: var(--blueText);
+}
+
+button.secret {
+    background-color: transparent;
+    color: transparent;
+}
+
+button.secret:active {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+button.fillWidth {
+    width: 100%;
+}
+
+button.bottom {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    width: calc(100vw - 40px);
+}
+
+select {
+    filter: brightness(100%);
+}
+
+input {
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    padding: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: var(--light);
+    color: var(--lightText);
+    font-size: 20px;
+    border: none;
+    border-radius: 26px;
+    user-select: auto;
+    cursor: text;
+    transition: 0.5s;
+}
+
+label {
+    display: block;
+    text-align: end;
+}
+
+label span {
+    display: inline-block;
+    width: calc(30% - 10px);
+    font-size: 20px;
+    text-align: start;
+    vertical-align: middle;
+}
+
+label input, label select {
+    width: 70%;
+    margin-right: 0;
+    vertical-align: middle;
+}
+
+label select {
+    background-color: var(--light);
+    color: var(--lightText);
+}
+
+label select:active {
+    filter: none;
+}
+
+progress {
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    margin: 5px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    background-color: var(--light);
+    border: none;
+    border-radius: 7.5px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--light);
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--blue);
+    border-radius: 10px;
+    transition: width 0.5s;
+}
+
+progress.dark::-webkit-progress-value {
+    background-color: var(--dark);
+}
+
+progress.red::-webkit-progress-value {
+    background-color: var(--red);
+}
+
+progress.green::-webkit-progress-value {
+    background-color: var(--green);
+}
+
+progress.blue::-webkit-progress-value {
+    background-color: var(--blue);
+}
+
+img.fillWidth {
+    width: 100%;
+}
+
+img.logo {
+    width: 100%;
+    padding: 20px;
+}
+
+img.headerGraphic {
+    width: 100%;
+    height: 20vh;
+    object-fit: contain;
+}
+
+img.headerGraphicSmaller {
+    width: 100%;
+    height: 15vh;
+    object-fit: contain;
+}
+
+img.headerGraphicMarginTop {
+    width: 100%;
+    height: 20vh;
+    margin-top: 50px;
+    object-fit: contain;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+pre {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--light);
+    color: var(--lightText);
+    font-family: monospace;
+    border-radius: 10px;
+    overflow: auto;
+    white-space: pre-wrap;
+    user-select: text;
+}
+
+iframe.content {
+    position: absolute;
+    top: 60px;
+    width: 100vw;
+    height: calc(100vh - 40px - 50px);
+    margin: -20px;
+    border: none;
+}
+
+table {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--dark);
+    border-radius: 12px;
+    border-spacing: 0;
+}
+  
+th, td {
+    padding: 5px;
+    border: 1px solid var(--dark);
+    text-align: left;
+}
+  
+table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+  
+table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+  
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+  
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+[contenteditable="true"][placeholder]:empty::before {
+    content: attr(placeholder);
+    color: var(--dark);
+    display: block;
+}
+
+[contenteditable="true"] p:empty {
+    display: block;
+    height: 1em;
+}
+
+.start {
+    text-align: start;
+}
+
+.center {
+    text-align: center;
+}
+
+.end {
+    text-align: end;
+}
+
+[dir="rtl"] .flippable {
+    transform: rotateY(180deg);
+}
+
+.desktop {
+    display: unset;
+}
+
+.mobile {
+    display: none;
+}
+
+.hasBottomButton {
+    padding-bottom: 90px;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buttonRow button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.buttonRow button:first-of-type {
+    margin-right: 0;
+}
+
+[dir="rtl"] .buttonRow button:first-of-type {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.errorMessage {
+    color: var(--red);
+}
+
+.dialogBackground {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.dialog {
+    display: none;
+    position: fixed;
+    top: 30vh;
+    left: 30vw;
+    width: calc(40vw - 20px);
+    height: calc(40vh - 20px);
+    padding: 10px;
+    z-index: 3;
+    background-color: var(--light);
+    color: var(--lightText);
+    border-radius: 10px;
+}
+
+.dialogTitle {
+    margin: -10px;
+    padding: 10px;
+    background-color: var(--blue);
+    color: var(--blueText);
+    border-radius: 10px 10px 0 0;
+    font-size: 20px;
+}
+
+.dialogContent {
+    width: calc(100% + 20px);
+    height: calc(100% - 95px);
+    margin: -10px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 20px;
+    overflow-y: auto;
+}
+
+.dialogContent input {
+    background-color: var(--background);
+}
+
+.dialogActions {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: -10px;
+    margin-top: 10px;
+    padding: 10px;
+    width: calc(100% + 20px);
+    height: 65px;
+    text-align: end;
+}
+
+.spacer {
+    height: 20px;
+}
+
+.dialogActions button {
+    height: 40px;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.editableToolboxShader {
+    position: sticky;
+    top: -20px;
+    height: 30px;
+    background-color: var(--background);
+}
+
+.editableToolboxShader + .editableToolbox {
+    margin-top: -30px;
+}
+
+.editableToolbox {
+    position: sticky;
+    top: 0;
+    margin-bottom: 5px;
+    background-color: var(--light);
+    border-radius: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.editableToolbox button {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: transparent;
+    color: var(--lightText);
+    border-radius: 10px;
+}
+
+.editableToolbox button:first-child {
+    margin-left: 5px;
+}
+
+[dir="rtl"] .editableToolbox button:first-child {
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+.editableToolbox button:last-child {
+    margin-right: 5px;
+}
+
+[dir="rtl"] .editableToolbox button:last-child {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+.editableToolbox button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.editableToolbox button icon {
+    position: relative;
+    top: 2px;
+}
+
+.editableToolbox .split {
+    position: relative;
+    bottom: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-left: 3px solid rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+.editableContents {
+    min-height: 100px;
+    padding: 10px;
+    border: 5px solid var(--light);
+    border-radius: 10px;
+    font-size: 20px;
+    outline: none!important;
+    overflow-x: auto;
+}
+
+.editableContents > *:first-child {
+    margin-top: 0;
+}
+
+.editableContents > *:last-child {
+    margin-bottom: 0;
+}
+
+.editableContents > h1 {
+    font-size: 30px;
+}
+
+.editableContents img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.editableContents table td {
+    min-width: 100px;
+}
+
+.editableContents iframe {
+    width: 100%;
+    height: 500px;
+    border: 2px solid var(--dark);
+    border-radius: 10px;
+}
+
+#loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 30vh;
+    padding-bottom: 30vh;
+    background-color: var(--light);
+    color: var(--lightText);
+    text-align: center;
+    z-index: 1;
+}
+
+#loader img {
+    height: 20vh;
+}
+
+#loader h1 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 48px;
+}
+
+#loader p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#about {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#about h1 {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+#about p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+*:focus {
+    outline: auto;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus:focus-visible {
+    outline: auto;
+}
+
+@media (min-width: 840px) {
+    div.sidebar {
+        display: block;
+    }
+
+    nav {
+        display: none;
+    }
+     
+    div.content {
+        top: 20px;
+        width: 100%;
+        height: 100vh;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+     
+    main {
+        position: absolute;
+        left: 300px!important;
+        width: calc(100vw - 300px);
+        height: 100vh;
+    }
+
+    footer {
+        display: none;
+    }
+}
+
+@media (max-width: 840px) {
+    .buttonRow button:first-of-type {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    label span {
+        display: block;
+        width: 100%;
+    }
+     
+    label input, label select {
+        width: 100%;
+    }
+
+    .desktop {
+        display: none;
+    }
+     
+    .mobile {
+        display: unset;
+    }
+
+    .dialog {
+        top: 20vh;
+        left: 20px;
+        width: calc(100vw - 40px);
+        height: 60vh;
+    }
+}
+
+@media (max-height: 550px) {
+    button.bottom {
+        position: unset;
+    }
+
+    .hasBottomButton {
+        padding-bottom: 20px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: black;
+        --text: white;
+        --light: #0d1317;
+        --lightText: white;
+        --dark: #b7c4e0;
+        --darkText: black;
+        --red: #a84267;
+        --redText: white;
+        --green: #0f9a7c;
+        --greenText: white;
+        --blue: #1d7eb9;
+        --blueText: white;
+    }
+
+    nav button:active {
+        color: rgba(0, 0, 0, 0.75);
+    }
+
+    footer a.selected {
+        background-color: rgba(255, 255, 255, 0.075);
+    }
+      
+    footer a.selected:active {
+        color: var(--text);
+    }
+      
+    footer a:not(.selected) {
+        color: rgba(255, 255, 255, 0.6);
+    }
+      
+    footer a:not(.selected):active {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    section.options button:first-child:not(:last-child), section.options input:first-child:not(:last-child), section.options select:first-child:not(:last-child) {
+        border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+    }
+      
+    section.options button:not(:first-child):not(:last-child), section.options input:not(:first-child):not(:last-child), section.options select:not(:first-child):not(:last-child) {
+        border-bottom: 3px solid rgba(255, 255, 255, 0.15);
+    }
+
+    section.options button span:nth-of-type(2), section.options input span:nth-of-type(2), section.options select span:nth-of-type(2) {
+        color: rgba(255, 255, 255, 0.15);
+    }
+}
